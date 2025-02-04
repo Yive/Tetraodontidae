@@ -1,7 +1,5 @@
 package gg.pufferfish.pufferfish;
 
-import gg.pufferfish.pufferfish.flare.FlareCommand;
-import gg.pufferfish.pufferfish.flare.FlareSetup;
 import gg.pufferfish.pufferfish.sentry.SentryManager;
 import gg.pufferfish.pufferfish.simd.SIMDDetection;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -271,30 +269,6 @@ public class PufferfishConfig {
 				"will prevent the server from performing an expensive search to attempt respawning",
 				"the ender dragon whenever a player places an end crystal.");
 	}
-
-    public static URI profileWebUrl;
-    private static void profilerOptions() {
-        profileWebUrl = URI.create(getString("flare.url", "https://flare.airplane.gg", "Sets the server to use for profiles."));
-
-        setComment("flare", "Configures Flare, the built-in profiler");
-    }
-
-
-    public static String accessToken;
-    private static void airplaneWebServices() {
-        accessToken = getString("web-services.token", "");
-        // todo lookup token (off-thread) and let users know if their token is valid
-        if (accessToken.length() > 0) {
-            FlareSetup.init(); // Pufferfish
-            SimpleCommandMap commandMap = MinecraftServer.getServer().server.getCommandMap();
-            if (commandMap.getCommand("flare") == null) {
-                commandMap.register("flare", "Pufferfish", new FlareCommand());
-            }
-        }
-
-        setComment("web-services", "Options for connecting to Pufferfish/Airplane's online utilities");
-
-    }
 
 
     public static boolean disableMethodProfiler;
