@@ -5,42 +5,21 @@ import gg.pufferfish.pufferfish.simd.SIMDDetection;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.entity.EntityType;
-import org.bukkit.command.SimpleCommandMap;
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.configuration.MemoryConfiguration;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.jetbrains.annotations.Nullable;
-import org.simpleyaml.configuration.comments.CommentType;
-import org.simpleyaml.configuration.file.YamlFile;
-import org.simpleyaml.exceptions.InvalidConfigurationException;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 
 public class PufferfishConfig {
 	
-	private static final YamlFile config = new YamlFile();
+	private static final YamlConfiguration config = new YamlConfiguration();
 	private static int updates = 0;
-	
-	private static ConfigurationSection convertToBukkit(org.simpleyaml.configuration.ConfigurationSection section) {
-		ConfigurationSection newSection = new MemoryConfiguration();
-		for (String key : section.getKeys(false)) {
-			if (section.isConfigurationSection(key)) {
-				newSection.set(key, convertToBukkit(section.getConfigurationSection(key)));
-			} else {
-				newSection.set(key, section.get(key));
-			}
-		}
-		return newSection;
-	}
-	
-	public static ConfigurationSection getConfigCopy() {
-		return convertToBukkit(config);
-	}
 	
 	public static int getUpdates() {
 		return updates;
@@ -102,14 +81,14 @@ public class PufferfishConfig {
 	
 	private static void setComment(String key, String... comment) {
 		if (config.contains(key)) {
-			config.setComment(key, String.join("\n", comment), CommentType.BLOCK);
+			config.setComments(key, List.of(comment));
 		}
 	}
 	
 	private static void ensureDefault(String key, Object defaultValue, String... comment) {
 		if (!config.contains(key)) {
 			config.set(key, defaultValue);
-			config.setComment(key, String.join("\n", comment), CommentType.BLOCK);
+			config.setComments(key, List.of(comment));
 		}
 	}
 	
