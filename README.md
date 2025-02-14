@@ -1,13 +1,12 @@
 [home]: https://pufferfish.host
 [knowledgebase]: https://docs.pufferfish.host
-[discord]: https://discord.gg/reZw4vQV9H
-[downloads]: https://pufferfish.host/downloads
+[downloads]: https://ci.yive.dev/job/Pufferfish/
 [optguide]: https://docs.pufferfish.host/optimization/pufferfish-server-optimization-guide/
 
 # Pufferfish
 A highly optimized Paper fork designed for large servers requiring both maximum performance, stability, and "enterprise" features.
 
-[Homepage][home] - [Downloads][downloads] - [Discord][discord] - [Knowledgebase][knowledgebase] - [Optimization Guide][optguide]
+[Homepage][home] - [Downloads][downloads] - [Knowledgebase][knowledgebase] - [Optimization Guide][optguide]
 
 ## Features
 
@@ -18,7 +17,6 @@ A highly optimized Paper fork designed for large servers requiring both maximum 
 - **30% faster hoppers** over Paper (Airplane)
 - **Reduced GC times & frequency** from removing useless allocations, which also improves CPU performance (Airplane)
 - **Fast raytracing** which improves performance of any entity which utilizes line of sight, mainly Villagers (Airplane)
-- **Built-in profiler** which has 0 performance hit and easy to read metrics for both server owners and developers (Airplane)
 - Faster crafting, reduction in uselessly loaded chunks, faster entity ticking, faster block ticking, faster bat spawning, and more!
 - Complete compatibility with any plugin compatible with Paper
 - And more coming soon...
@@ -34,13 +32,13 @@ This fork is developed by [Pufferfish Host][home], and we can provide additional
 ## Building
 
 ```bash
-./gradlew build
+./gradlew applyAllPatches
 ```
 
-Or building a Paperclip JAR for distribution:
+Then building a Paperclip JAR for server use:
 
 ```bash
-./gradlew paperclip
+./gradlew createMojmapPaperclipJar
 ```
 
 ## License
