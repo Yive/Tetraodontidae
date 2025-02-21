@@ -1,12 +1,11 @@
 [home]: https://pufferfish.host
-[knowledgebase]: https://docs.pufferfish.host
 [downloads]: https://ci.yive.dev/job/Pufferfish/
-[optguide]: https://docs.pufferfish.host/optimization/pufferfish-server-optimization-guide/
+[pluto]: https://github.com/Yive/Pluto
 
 # Pufferfish
 A highly optimized Paper fork designed for large servers requiring both maximum performance, stability, and "enterprise" features.
 
-[Homepage][home] - [Downloads][downloads] - [Knowledgebase][knowledgebase] - [Optimization Guide][optguide]
+**Note:** This fork is just so that it is easier for me to maintain [Pluto][pluto]
 
 ## Features
 
