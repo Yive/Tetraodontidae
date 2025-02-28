@@ -20,6 +20,15 @@
      spigot {
          buildDataRef = "3edaf46ec1eed4115ce1b18d2846cded42577e42"
          packageVersion = "v1_21_R3" // also needs to be updated in MappingEnvironment
+@@ -39,6 +_,8 @@
+     )
+ }
+ 
++tasks.withType<JavaCompile> { options.compilerArgs.add("--add-modules=jdk.incubator.vector") } // Pufferfish
++
+ tasks.generateDevelopmentBundle {
+     libraryRepositories.addAll(
+         "https://repo.maven.apache.org/maven2/",
 @@ -101,7 +_,22 @@
      }
  }
@@ -53,21 +62,7 @@
      implementation("ca.spottedleaf:concurrentutil:0.0.3")
      implementation("org.jline:jline-terminal-ffm:3.27.1") // use ffm on java 22+
      implementation("org.jline:jline-terminal-jni:3.27.1") // fall back to jni on java 21
-@@ -176,6 +_,13 @@
-     implementation("me.lucko:spark-paper:1.10.119-SNAPSHOT")
- }
- 
-+// Pufferfish Start
-+tasks.withType<JavaCompile> {
-+    val compilerArgs = options.compilerArgs
-+    compilerArgs.add("--add-modules=jdk.incubator.vector")
-+}
-+// Pufferfish End
-+
- tasks.jar {
-     manifest {
-         val git = Git(rootProject.layout.projectDirectory.path)
-@@ -188,14 +_,14 @@
+@@ -189,14 +_,14 @@
          val gitBranch = git.exec(providers, "rev-parse", "--abbrev-ref", "HEAD").get().trim()
          attributes(
              "Main-Class" to "org.bukkit.craftbukkit.Main",
