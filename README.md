@@ -1,11 +1,11 @@
-[home]: https://pufferfish.host
 [downloads]: https://ci.yive.dev/job/Pufferfish/
 [pluto]: https://github.com/Yive/Pluto
+[javadocs]: https://repo.yive.dev/javadoc/snapshots/gg/pufferfish/pufferfish/pufferfish-api/1.21.4-R0.1-SNAPSHOT
 
 # Pufferfish
 A highly optimized Paper fork designed for large servers requiring both maximum performance, stability, and "enterprise" features.
 
-**Note:** This fork is just so that it is easier for me to maintain [Pluto][pluto]
+**Note:** This fork is just so that it is easier for me to maintain my optimisation fork called [Pluto][pluto]
 
 ## Features
 
@@ -23,20 +23,54 @@ A highly optimized Paper fork designed for large servers requiring both maximum 
 ## Downloads
 You can download the latest JAR file [here][downloads].
 
-## Pufferfish Host
+## API
+You can find the javadocs [here][javadocs].
 
-Are you looking for a server hosting provider to take your server's performance to the next level? Check out [Pufferfish Host][home]! We run only the best hardware so you can be sure that your server's hardware isn't bogging you down.
-This fork is developed by [Pufferfish Host][home], and we can provide additional tailored performance support to customers.
+Maven:
+```xml
+<repositories>
+    <repository>
+        <id>yive-repo</id>
+        <url>https://repo.yive.dev/snapshots</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>gg.pufferfish.pufferfish</groupId>
+        <artifactId>pufferfish-api</artifactId>
+        <version>1.21.4-R0.1-SNAPSHOT</version>
+        <scope>provided</scope>
+    </dependency>
+</dependencies>
+```
+Gradle:
+```groovy
+repositories {
+    maven {
+        url = 'https://repo.yive.dev/snapshots'
+    }
+}
+
+dependencies {
+    compileOnly 'gg.pufferfish.pufferfish:pufferfish-api:1.21.4-R0.1-SNAPSHOT'
+}
+```
+Paperweight + Gradle KTS:
+```kts
+repositories {
+    maven("https://repo.yive.dev/snapshots")
+}
+
+dependencies {
+    paperweight.devBundle("gg.pufferfish.pufferfish", "1.21.4-R0.1-SNAPSHOT")
+}
+```
 
 ## Building
 
 ```bash
 ./gradlew applyAllPatches
-```
-
-Then building a Paperclip JAR for server use:
-
-```bash
 ./gradlew createMojmapPaperclipJar
 ```
 
