@@ -1,30 +1,18 @@
 --- a/net/minecraft/world/entity/player/Inventory.java
 +++ b/net/minecraft/world/entity/player/Inventory.java
-@@ -568,6 +_,8 @@
+@@ -557,11 +_,14 @@
      }
  
      public boolean contains(ItemStack stack) {
+-        for (ItemStack itemStack : this) {
 +        // Pufferfish start - don't allocate iterators
-+        /*
-         for (List<ItemStack> list : this.compartments) {
-             for (ItemStack itemStack : list) {
-                 if (!itemStack.isEmpty() && ItemStack.isSameItemSameComponents(itemStack, stack)) {
-@@ -575,6 +_,18 @@
-                 }
++        for (int slot = 0; slot < this.getContainerSize(); slot++) {
++            ItemStack itemStack = this.getItem(slot);
+             if (!itemStack.isEmpty() && ItemStack.isSameItemSameComponents(itemStack, stack)) {
+                 return true;
              }
          }
-+         */
-+        for (int i = 0; i < this.compartments.size(); i++) {
-+            List<ItemStack> list = this.compartments.get(i);
-+            for (int j = 0; j < list.size(); j++) {
-+                ItemStack itemstack1 = list.get(j);
-+
-+                if (!itemstack1.isEmpty() && ItemStack.isSameItemSameComponents(itemstack1, stack)) {
-+                    return true;
-+                }
-+            }
-+        }
-+        // Pufferfish end
++        // Pufferfish end - don't allocate iterators
  
          return false;
      }

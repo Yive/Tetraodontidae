@@ -1,8 +1,8 @@
 --- a/net/minecraft/world/level/chunk/LevelChunk.java
 +++ b/net/minecraft/world/level/chunk/LevelChunk.java
-@@ -127,6 +_,18 @@
-     }
-     // Paper end - get block chunk optimisation
+@@ -95,6 +_,18 @@
+     boolean loadedTicketLevel;
+     // Paper end
  
 +    // Pufferfish start - instead of using a random every time the chunk is ticked, define when lightning strikes preemptively
 +    private int lightningTick;
@@ -19,10 +19,10 @@
      public LevelChunk(Level level, ChunkPos pos) {
          this(level, pos, UpgradeData.EMPTY, new LevelChunkTicks<>(), new LevelChunkTicks<>(), 0L, null, null, null);
      }
-@@ -163,6 +_,7 @@
-         this.debug = !empty && this.level.isDebug();
-         this.defaultBlockState = empty ? VOID_AIR_BLOCKSTATE : AIR_BLOCKSTATE;
-         // Paper end - get block chunk optimisation
+@@ -123,6 +_,7 @@
+         this.postLoad = postLoad;
+         this.blockTicks = blockTicks;
+         this.fluidTicks = fluidTicks;
 +        this.lightningTick = new java.util.Random().nextInt(100000) << 1; // Pufferfish - initialize lightning tick
      }
  

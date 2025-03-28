@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/Mob.java
 +++ b/net/minecraft/world/entity/Mob.java
-@@ -215,14 +_,16 @@
+@@ -203,14 +_,16 @@
          return this.lookControl;
      }
  
@@ -19,7 +19,7 @@
              this.targetSelector.tick();
          }
      }
-@@ -861,16 +_,20 @@
+@@ -731,16 +_,20 @@
          int i = this.tickCount + this.getId();
          if (i % 2 != 0 && this.tickCount > 1) {
              profilerFiller.push("targetSelector");
