@@ -1,6 +1,6 @@
 --- a/net/minecraft/server/level/ServerLevel.java
 +++ b/net/minecraft/server/level/ServerLevel.java
-@@ -787,6 +_,7 @@
+@@ -788,6 +_,7 @@
              this.entityTickList
                  .forEach(
                      entity -> {
@@ -8,7 +8,7 @@
                          if (!entity.isRemoved()) {
                              if (!tickRateManager.isEntityFrozen(entity)) {
                                  profilerFiller.push("checkDespawn");
-@@ -803,7 +_,19 @@
+@@ -804,7 +_,19 @@
                                      }
  
                                      profilerFiller.push("tick");
@@ -29,7 +29,7 @@
                                      profilerFiller.pop();
                                  }
                              }
-@@ -938,7 +_,7 @@
+@@ -939,7 +_,7 @@
          int minBlockZ = pos.getMinBlockZ();
          ProfilerFiller profilerFiller = Profiler.get();
          profilerFiller.push("thunder");
