@@ -1,16 +1,15 @@
 --- a/net/minecraft/server/level/ServerChunkCache.java
 +++ b/net/minecraft/server/level/ServerChunkCache.java
-@@ -85,6 +_,9 @@
-     long chunkFutureAwaitCounter;
-     // Paper end
+@@ -184,6 +_,8 @@
+     }
+     // Paper end - chunk tick iteration optimisations
  
 +    public boolean firstRunSpawnCounts = true; // Pufferfish
 +    public final java.util.concurrent.atomic.AtomicBoolean _pufferfish_spawnCountsReady = new java.util.concurrent.atomic.AtomicBoolean(false); // Pufferfish - optimize countmobs
-+
+ 
      public ServerChunkCache(
          ServerLevel level,
-         LevelStorageSource.LevelStorageAccess levelStorageAccess,
-@@ -442,6 +_,43 @@
+@@ -521,6 +_,43 @@
  
              this.broadcastChangedChunks(profilerFiller);
              profilerFiller.pop();
@@ -54,7 +53,7 @@
          }
      }
  
-@@ -462,10 +_,10 @@
+@@ -541,10 +_,10 @@
      private void tickChunks(ProfilerFiller profiler, long timeInhabited) {
          profiler.popPush("naturalSpawnCount");
          int naturalSpawnChunkCount = this.distanceManager.getNaturalSpawnChunkCount();
@@ -69,7 +68,7 @@
          profiler.popPush("spawnAndTick");
          boolean _boolean = this.level.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING) && !this.level.players().isEmpty(); // CraftBukkit
          int _int = this.level.getGameRules().getInt(GameRules.RULE_RANDOMTICKING);
-@@ -480,7 +_,7 @@
+@@ -559,7 +_,7 @@
              }
              // Paper end - PlayerNaturallySpawnCreaturesEvent
              boolean flag = this.level.ticksPerSpawnCategory.getLong(org.bukkit.entity.SpawnCategory.ANIMAL) != 0L && this.level.getLevelData().getGameTime() % this.level.ticksPerSpawnCategory.getLong(org.bukkit.entity.SpawnCategory.ANIMAL) == 0L; // CraftBukkit
@@ -78,7 +77,7 @@
          } else {
              filteredSpawningCategories = List.of();
          }
-@@ -495,7 +_,7 @@
+@@ -577,7 +_,7 @@
              profiler.popPush("tickSpawningChunks");
  
              for (LevelChunk levelChunk : list) {
@@ -87,12 +86,12 @@
              }
          } finally {
              list.clear();
-@@ -518,7 +_,7 @@
+@@ -600,7 +_,7 @@
          }
  
          if (!spawnCategories.isEmpty()) {
--            if (this.level.canSpawnEntitiesInChunk(pos)) {
-+            if (this.level.canSpawnEntitiesInChunk(pos) && (!gg.pufferfish.pufferfish.PufferfishConfig.enableAsyncMobSpawning || _pufferfish_spawnCountsReady.get())) { // Pufferfish
+-            if (this.level.getWorldBorder().isWithinBounds(pos)) { // Paper - rewrite chunk system
++            if (this.level.getWorldBorder().isWithinBounds(pos) && (!gg.pufferfish.pufferfish.PufferfishConfig.enableAsyncMobSpawning || _pufferfish_spawnCountsReady.get())) { // Pufferfish
                  NaturalSpawner.spawnForChunk(this.level, chunk, spawnState, spawnCategories);
              }
          }

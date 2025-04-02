@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/level/Level.java
 +++ b/net/minecraft/world/level/Level.java
-@@ -841,12 +_,12 @@
+@@ -1480,12 +_,12 @@
      public <T extends Entity> void guardEntityTick(Consumer<T> consumerEntity, T entity) {
          try {
              consumerEntity.accept(entity);
@@ -14,4 +14,4 @@
 +            entity.discard(org.bukkit.event.entity.EntityRemoveEvent.Cause.DISCARD); // Pufferfish - diff on change ServerLevel.tick
              // Paper end - Prevent block entity and entity crashes
          }
-     }
+         this.moonrise$midTickTasks(); // Paper - rewrite chunk system

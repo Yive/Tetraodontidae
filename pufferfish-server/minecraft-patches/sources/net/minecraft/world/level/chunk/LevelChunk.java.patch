@@ -1,8 +1,8 @@
 --- a/net/minecraft/world/level/chunk/LevelChunk.java
 +++ b/net/minecraft/world/level/chunk/LevelChunk.java
-@@ -95,6 +_,18 @@
-     boolean loadedTicketLevel;
-     // Paper end
+@@ -91,6 +_,18 @@
+     public boolean needsDecoration;
+     // CraftBukkit end
  
 +    // Pufferfish start - instead of using a random every time the chunk is ticked, define when lightning strikes preemptively
 +    private int lightningTick;
@@ -16,14 +16,15 @@
 +    }
 +    // Pufferfish end
 +
-     public LevelChunk(Level level, ChunkPos pos) {
-         this(level, pos, UpgradeData.EMPTY, new LevelChunkTicks<>(), new LevelChunkTicks<>(), 0L, null, null, null);
-     }
-@@ -123,6 +_,7 @@
+     // Paper start
+     boolean loadedTicketLevel;
+     // Paper end
+@@ -152,6 +_,8 @@
+                 this.heightmaps.put(types, new Heightmap(this, types));
+             }
+         }
++
++        this.lightningTick = new java.util.Random().nextInt(100000) << 1; // Pufferfish - initialize lightning tick
+ 
          this.postLoad = postLoad;
          this.blockTicks = blockTicks;
-         this.fluidTicks = fluidTicks;
-+        this.lightningTick = new java.util.Random().nextInt(100000) << 1; // Pufferfish - initialize lightning tick
-     }
- 
-     public LevelChunk(ServerLevel level, ProtoChunk chunk, @Nullable LevelChunk.PostLoadProcessor postLoad) {
