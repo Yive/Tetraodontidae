@@ -1,6 +1,6 @@
 [downloads]: https://ci.yive.dev/job/Pufferfish/
 [pluto]: https://github.com/Yive/Pluto
-[javadocs]: https://repo.yive.dev/javadoc/snapshots/gg/pufferfish/pufferfish/pufferfish-api/1.21.4-R0.1-SNAPSHOT
+[javadocs]: https://repo.yive.dev/javadoc/snapshots/gg/pufferfish/pufferfish/pufferfish-api/1.21.5-R0.1-SNAPSHOT
 
 # Pufferfish
 A highly optimized Paper fork designed for large servers requiring both maximum performance, stability, and "enterprise" features.
@@ -39,7 +39,7 @@ Maven:
     <dependency>
         <groupId>gg.pufferfish.pufferfish</groupId>
         <artifactId>pufferfish-api</artifactId>
-        <version>1.21.4-R0.1-SNAPSHOT</version>
+        <version>1.21.5-R0.1-SNAPSHOT</version>
         <scope>provided</scope>
     </dependency>
 </dependencies>
@@ -53,7 +53,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'gg.pufferfish.pufferfish:pufferfish-api:1.21.4-R0.1-SNAPSHOT'
+    compileOnly 'gg.pufferfish.pufferfish:pufferfish-api:1.21.5-R0.1-SNAPSHOT'
 }
 ```
 Paperweight + Gradle KTS:
@@ -63,7 +63,7 @@ repositories {
 }
 
 dependencies {
-    paperweight.devBundle("gg.pufferfish.pufferfish", "1.21.4-R0.1-SNAPSHOT")
+    paperweight.devBundle("gg.pufferfish.pufferfish", "1.21.5-R0.1-SNAPSHOT")
 }
 ```
 
