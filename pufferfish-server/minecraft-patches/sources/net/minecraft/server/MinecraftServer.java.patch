@@ -25,7 +25,7 @@
      // CraftBukkit end
  
      private ProfilerFiller createProfiler() {
-+        if (gg.pufferfish.pufferfish.PufferfishConfig.disableMethodProfiler) return net.minecraft.util.profiling.InactiveProfiler.INSTANCE;
++        if (gg.pufferfish.pufferfish.PufferfishConfig.disableMethodProfiler) return net.minecraft.util.profiling.InactiveProfiler.INSTANCE; // Pufferfish
          if (this.willStartRecordingMetrics) {
              this.metricsRecorder = ActiveMetricsRecorder.createStarted(
                  new ServerMetricsSamplersProvider(Util.timeSource, this.isDedicatedServer()),
