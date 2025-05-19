@@ -31,8 +31,8 @@ public class PufferfishVersionFetcher implements VersionFetcher {
 	private static final Logger LOGGER = Logger.getLogger("PufferfishVersionFetcher");
 	private static final HttpClient client = HttpClient.newHttpClient();
 	
-	private static final URI JENKINS_URI = URI.create("https://ci.yive.dev/job/Pufferfish/job/1.21.4/lastSuccessfulBuild/buildNumber");
-	private static final String GITHUB_FORMAT = "https://api.github.com/repos/Yive/Pufferfish/compare/ver/1.21.4...%s";
+	private static final URI JENKINS_URI = URI.create("https://ci.yive.dev/job/Pufferfish/job/1.21.5/lastSuccessfulBuild/buildNumber");
+	private static final String GITHUB_FORMAT = "https://api.github.com/repos/Yive/Pufferfish/compare/ver/1.21.5...%s";
 	
 	private static final HttpResponse.BodyHandler<JsonObject> JSON_OBJECT_BODY_HANDLER = responseInfo -> HttpResponse.BodySubscribers
 			.mapping(
@@ -46,7 +46,7 @@ public class PufferfishVersionFetcher implements VersionFetcher {
 	}
 	
 	@Override
-	public @NotNull Component getVersionMessage(final @NotNull String serverVersion) {
+	public @NotNull Component getVersionMessage() {
 		@NotNull Component component;
 
 		if (ServerBuildInfo.buildInfo().buildNumber().isPresent()) {
