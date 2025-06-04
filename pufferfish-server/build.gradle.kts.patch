@@ -17,9 +17,9 @@
 +    activeFork = pufferfish
 +    // Pufferfish end
 +
-     //updatingMinecraft {
-     //    oldPaperCommit = "f4f275519f7c1fbe9db173b7144a4fe81440e365"
-     //}
+     updatingMinecraft {
+         oldPaperCommit = "a033e3b9ef78cfe85be807ac3fd1dd956274d4db"
+     }
 @@ -46,6 +_,8 @@
      )
  }
@@ -91,3 +91,14 @@
  idea {
      module {
          generatedSourceDirs.add(generatedDir.toFile())
+@@ -370,3 +_,10 @@
+     classpath(tasks.createReobfPaperclipJar.flatMap { it.outputZip })
+     mainClass.set(null as String?)
+ }
++
++// Pufferfish start
++tasks.withType<JavaCompile>().configureEach {
++    options.isFork = true
++    options.forkOptions.memoryMaximumSize = "4g"
++}
++// Pufferfish end

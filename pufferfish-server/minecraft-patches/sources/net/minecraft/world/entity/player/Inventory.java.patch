@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/player/Inventory.java
 +++ b/net/minecraft/world/entity/player/Inventory.java
-@@ -561,11 +_,14 @@
+@@ -572,11 +_,14 @@
      }
  
      public boolean contains(ItemStack stack) {

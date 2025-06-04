@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/level/chunk/LevelChunk.java
 +++ b/net/minecraft/world/level/chunk/LevelChunk.java
-@@ -91,6 +_,18 @@
+@@ -93,6 +_,18 @@
      public boolean needsDecoration;
      // CraftBukkit end
  
@@ -19,7 +19,7 @@
      // Paper start
      boolean loadedTicketLevel;
      // Paper end
-@@ -152,6 +_,8 @@
+@@ -154,6 +_,8 @@
                  this.heightmaps.put(types, new Heightmap(this, types));
              }
          }

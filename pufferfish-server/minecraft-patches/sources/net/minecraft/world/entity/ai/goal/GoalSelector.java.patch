@@ -1,6 +1,6 @@
 --- a/net/minecraft/world/entity/ai/goal/GoalSelector.java
 +++ b/net/minecraft/world/entity/ai/goal/GoalSelector.java
-@@ -38,9 +_,12 @@
+@@ -36,9 +_,12 @@
      }
  
      // Paper start - EAR 2
