@@ -32,7 +32,7 @@ public class PufferfishVersionFetcher implements VersionFetcher {
 	private static final HttpClient client = HttpClient.newHttpClient();
 	
 	private static final URI JENKINS_URI = URI.create("https://ci.yive.dev/job/Pufferfish/job/1.21.4/lastSuccessfulBuild/buildNumber");
-	private static final String GITHUB_FORMAT = "https://api.github.com/repos/Yive/Pufferfish/compare/ver/1.21.4...%s";
+	private static final String GITHUB_FORMAT = "https://api.github.com/repos/Yive/Tetraodontidae/compare/ver/1.21.4...%s";
 	
 	private static final HttpResponse.BodyHandler<JsonObject> JSON_OBJECT_BODY_HANDLER = responseInfo -> HttpResponse.BodySubscribers
 			.mapping(

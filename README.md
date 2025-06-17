@@ -2,10 +2,13 @@
 [pluto]: https://github.com/Yive/Pluto
 [javadocs]: https://repo.yive.dev/javadoc/snapshots/gg/pufferfish/pufferfish/pufferfish-api/1.21.4-R0.1-SNAPSHOT
 
-# Pufferfish
-A highly optimized Paper fork designed for large servers requiring both maximum performance, stability, and "enterprise" features.
 
-**Note:** This fork is just so that it is easier for me to maintain my optimisation fork called [Pluto][pluto]
+# Tetraodontidae
+_I was asked to not use the Pufferfish name_
+
+**Note:** This Pufferfish fork is just so that it is easier for me to maintain my optimisation fork called [Pluto][pluto]
+
+A highly optimized Paper fork designed for large servers requiring both maximum performance, stability, and "enterprise" features.
 
 ## Features
 
