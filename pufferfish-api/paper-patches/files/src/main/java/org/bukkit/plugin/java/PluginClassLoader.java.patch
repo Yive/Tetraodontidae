@@ -1,6 +1,6 @@
 --- a/src/main/java/org/bukkit/plugin/java/PluginClassLoader.java
 +++ b/src/main/java/org/bukkit/plugin/java/PluginClassLoader.java
-@@ -50,6 +_,7 @@
+@@ -51,6 +_,7 @@
      private io.papermc.paper.plugin.provider.classloader.PluginClassLoaderGroup classLoaderGroup; // Paper
      public io.papermc.paper.plugin.provider.entrypoint.DependencyContext dependencyContext; // Paper
  
@@ -8,7 +8,7 @@
      static {
          ClassLoader.registerAsParallelCapable();
      }
-@@ -197,6 +_,7 @@
+@@ -205,6 +_,7 @@
          throw new ClassNotFoundException(name);
      }
  
@@ -16,7 +16,7 @@
      @Override
      protected Class<?> findClass(String name) throws ClassNotFoundException {
          if (name.startsWith("org.bukkit.") || name.startsWith("net.minecraft.")) {
-@@ -204,7 +_,7 @@
+@@ -212,7 +_,7 @@
          }
          Class<?> result = classes.get(name);
  
@@ -25,7 +25,7 @@
              String path = name.replace('.', '/').concat(".class");
              // Add details to zip file errors - help debug classloading
              JarEntry entry;
-@@ -260,6 +_,7 @@
+@@ -268,6 +_,7 @@
              this.setClass(name, result); // Paper
          }
  
@@ -33,7 +33,7 @@
          return result;
      }
  
-@@ -274,6 +_,7 @@
+@@ -282,6 +_,7 @@
              // Paper end
              super.close();
          } finally {
