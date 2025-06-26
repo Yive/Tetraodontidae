@@ -31,8 +31,8 @@ public class PufferfishVersionFetcher implements VersionFetcher {
 	private static final Logger LOGGER = Logger.getLogger("PufferfishVersionFetcher");
 	private static final HttpClient client = HttpClient.newHttpClient();
 	
-	private static final URI JENKINS_URI = URI.create("https://ci.yive.dev/job/Pufferfish/job/1.21.6/lastSuccessfulBuild/buildNumber");
-	private static final String GITHUB_FORMAT = "https://api.github.com/repos/Yive/Tetraodontidae/compare/ver/1.21.6...%s";
+	private static final URI JENKINS_URI = URI.create("https://ci.yive.dev/job/Pufferfish/job/1.21.7/lastSuccessfulBuild/buildNumber");
+	private static final String GITHUB_FORMAT = "https://api.github.com/repos/Yive/Tetraodontidae/compare/ver/1.21.7...%s";
 	
 	private static final HttpResponse.BodyHandler<JsonObject> JSON_OBJECT_BODY_HANDLER = responseInfo -> HttpResponse.BodySubscribers
 			.mapping(
