@@ -29,7 +29,7 @@
      public boolean onClimbable() {
          if (this.isSpectator()) {
              return false;
-@@ -4432,6 +_,19 @@
+@@ -4448,6 +_,19 @@
      public boolean isInWall() {
          return !this.isSleeping() && super.isInWall();
      }
