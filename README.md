@@ -7,6 +7,8 @@ _I was asked to not use the Pufferfish name_
 
 **Note:** This Pufferfish fork is just so that it is easier for me to maintain my optimisation fork called [Pluto][pluto]
 
+### This fork will be discontinued in 1.21.9/1.22 and merge into Pluto.
+
 A highly optimized Paper fork designed for large servers requiring both maximum performance, stability, and "enterprise" features.
 
 ## Features
